@@ -1,0 +1,85 @@
+.contacts-list {
+ 
+}
+
+.item {
+  display: flex;
+  margin: 0 auto;
+  width: 500px;
+  height: 40px;
+  padding: 10px;
+  align-items: center;
+  border-radius: 2px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.contactLink {
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 20px;
+  color: #757575;
+  width: 200px;
+}
+
+.contactContainer {
+  display: flex;
+  margin: 0 auto;
+  width: 500px;
+  /* padding: 10px; */
+}
+
+.contactHead {
+  margin: 20px 0 0 ;
+  padding-left: 20px;
+  width: 200px;
+}
+
+.contactTille {
+  margin: 0;
+  width: 200px;
+}
+.btnIcon {
+  border: none;
+  background: white;
+}
+
+.stats {
+  width: 60px;
+  transition: all 0.25s;
+  /* padding: 10px; */
+}
+
+.name {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.16;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: #212121;
+  margin-left: 30px;
+  /* border: 2px solid yellow; */
+}
+
+/* .avatar {
+  margin-top: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  border: 2px solid rgb(0, 0, 0, 0.2);
+} */
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: #4e545c;
+}
+
+
+.icon:hover,
+.icon:focus {
+  fill: #60a5fa;
+  transition: all 0.25s;
+  transform: scale(1.2);
+}

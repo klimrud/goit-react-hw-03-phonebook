@@ -1,0 +1,46 @@
+.filterContainer{
+  display: flex;
+  position: relative;
+  width: 500px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+/* border: 1px solid rosybrown;
+background: darkslategrey; */
+flex-direction: column;
+}
+
+.filterTitle{
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 0;
+}
+
+.filterInput{
+  margin: 0 auto;
+  width: 80%;
+  font-size: 18px;
+  font-family: Consolas;
+padding-left: 40px;
+padding-top: 20px;
+padding-bottom: 20px;
+background-color: white;
+border: none;
+background: transparent;
+border-radius: 0;
+border-bottom: 2px solid #4b4b4b;
+}
+
+.filterInput:hover,
+.filterInput:focus {
+  border: none;
+background: transparent;
+border-radius: 0;
+border-bottom: 2px solid #757575;
+}
+
+.iconFilter{
+position: absolute;
+left: 30px;
+ top: 80px;
+z-index: 9;
+}
