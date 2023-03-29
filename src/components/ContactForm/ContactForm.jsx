@@ -2,6 +2,8 @@ import { Component } from 'react';
 import { nanoid } from 'nanoid';
 import css from 'components/ContactForm/ContactForm.module.css';
 
+
+
 const INITIAL_STATE = {
   name: '',
   number: '',
@@ -19,6 +21,7 @@ export class ContactForm extends Component {
     e.preventDefault();
     const { name, number } = this.state;
     this.props.onSubmit({ id: nanoid(), name, number });
+    console.log('this.state', this.state);
     this.reset();
   };
 
@@ -45,6 +48,7 @@ export class ContactForm extends Component {
               placeholder="Jacob Mercer"
               required
             />
+           
           </div>
 
           <div className={css['phon-container']}>

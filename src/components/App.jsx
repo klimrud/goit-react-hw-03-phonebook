@@ -4,6 +4,20 @@ import { ContactForm } from './ContactForm/ContactForm.jsx';
 import { Filter } from './ContactForm/Filter.jsx';
 import { ContactList } from './ContactForm/ContactList.jsx';
 
+// class Did extends PureComponent {
+
+// componentDidMount() {
+//   console.log('App componentDidMount');
+// }
+
+// componentDidUpdate() {
+// console.log('componentDidUpdate');
+// }
+
+// componentWillUnmount(){
+//   console.log('componentWillUnmount');
+// }
+// }
 export class App extends Component {
   state = {
     contacts: [
@@ -15,13 +29,22 @@ export class App extends Component {
     filter: '',
   };
 
-  createContact = contact => {
-    if (this.state.contacts.some(el => el.name === contact.name)) {
-      alert (`${contact.name} is already in contacts`);
-    }else {
-    this.setState(prevState => ({
-      contacts: [...prevState.contacts, contact],
-    }));}
+  createContact = (contact, prevState) => {
+    //  if (this.state.contacts !== prevState.contacts){
+    // console.log('Обновилось книга сонтактов');
+    // }else {
+
+    if (
+      this.state.contacts.some(
+        el => el.name === contact.name && el.number === contact.number
+      )
+    ) {
+      alert(`${contact.name} is already in contacts`);
+    } else {
+      this.setState(prevState => ({
+        contacts: [...prevState.contacts, contact],
+      }));
+    }
   };
 
   removeContact = contactId => {
@@ -42,6 +65,27 @@ export class App extends Component {
     );
   };
 
+  componentDidMount() {
+    console.log('Did Mouns');
+
+    const contacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contacts);
+
+    // console.log(parsedContacts);
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('Обновляюсь и зацикливаюсь');
+
+    if (this.state.contacts !== prevState.contacts) {
+      console.log('Update contacts');
+
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
   render() {
     const { filter, contacts } = this.state;
     const filteredContacts = this.filteredContacts();
@@ -61,7 +105,7 @@ export class App extends Component {
             onDelete={this.removeContact}
           />
         ) : (
-          <p className='title'>No contacts</p>
+          <p className="title">No contacts</p>
         )}
       </div>
     );
