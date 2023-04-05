@@ -1,10 +1,9 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
 import { IoTrashBin } from 'react-icons/io5';
 import css from 'components/ContactForm/ContactList.module.css';
 
 export const ContactList = ({ contacts = [], onDelete }) => {
- 
   return (
     <section>
       <div className={css.contactContainer}>

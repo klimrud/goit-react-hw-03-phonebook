@@ -4,20 +4,6 @@ import { ContactForm } from './ContactForm/ContactForm.jsx';
 import { Filter } from './ContactForm/Filter.jsx';
 import { ContactList } from './ContactForm/ContactList.jsx';
 
-// class Did extends PureComponent {
-
-// componentDidMount() {
-//   console.log('App componentDidMount');
-// }
-
-// componentDidUpdate() {
-// console.log('componentDidUpdate');
-// }
-
-// componentWillUnmount(){
-//   console.log('componentWillUnmount');
-// }
-// }
 export class App extends Component {
   state = {
     contacts: [
@@ -30,10 +16,6 @@ export class App extends Component {
   };
 
   createContact = (contact, prevState) => {
-    //  if (this.state.contacts !== prevState.contacts){
-    // console.log('Обновилось книга сонтактов');
-    // }else {
-
     if (
       this.state.contacts.some(
         el => el.name === contact.name && el.number === contact.number
@@ -66,23 +48,17 @@ export class App extends Component {
   };
 
   componentDidMount() {
-    console.log('Did Mouns');
-
     const contacts = localStorage.getItem('contacts');
     const parsedContacts = JSON.parse(contacts);
 
-    // console.log(parsedContacts);
     if (parsedContacts) {
       this.setState({ contacts: parsedContacts });
     }
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('Обновляюсь и зацикливаюсь');
-
     if (this.state.contacts !== prevState.contacts) {
-      console.log('Update contacts');
-
+      //Обновляюсь и зацикливаюсь
       localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
     }
   }
